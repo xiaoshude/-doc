@@ -1,0 +1,14 @@
+分支
+master 主分支, QA测试用的分支. 更新周期一般为一周.
+develop 开发使用的分支. 是各个feature分支, bug分支,提交merge request合并代码.
+release 发布时使用的分支.等发布完成后就不进行维护了.
+xxxxxx 各个feature 分支.有开发者自己创建.
+开发流程
+在github上创建issue, 题目如: makesomething. 没有issue有个编号如: #89
+基于最新的develop分支代码创建本地分支如 makesomething
+解决问题. 把自己commit的点尽量减少(本地执行git rebase -i xxxxx), message 要写成: "#89 xxxxxx" 这种形式.
+在makesomething分支执行 git pull --rebase origin develop //使得你的代码是基于最新代码的
+如果上步有冲突,解决冲突. 测试通过.
+git push origin makesomething:makesomething //把你本地分支代码push到服务器
+在gitlab中提交merge request 给管理员
+管理员把代码merge到develop上
